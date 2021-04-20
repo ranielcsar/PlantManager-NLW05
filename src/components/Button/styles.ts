@@ -1,5 +1,6 @@
-import styled from 'styled-components/native'
-import { TouchableOpacity, Text } from 'react-native'
+import styled from 'styled-components'
+import { TouchableOpacity } from 'react-native'
+import Text from '../Text'
 import colors from '../../../styles/colors'
 
 export const Container = styled(TouchableOpacity).attrs({
@@ -10,12 +11,15 @@ export const Container = styled(TouchableOpacity).attrs({
   align-items: center;
   border-radius: 16px;
   margin-bottom: 20px;
-  width: 56px;
   height: 56px;
+  padding: 0 20px;
+  width: 100%;
 `
 
-export const Label = styled(Text)`
+export const Label = styled(Text).attrs({
+  heading: true,
+})`
   text-align: center;
-  font-size: 24px;
+  font-size: 16px;
   color: ${colors.white};
 `
