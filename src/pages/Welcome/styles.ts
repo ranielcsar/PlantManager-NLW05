@@ -16,11 +16,10 @@ export const Wrapper = styled(View)`
 `
 
 export const Title = styled(Text).attrs({
-  heading: true,
+  semibold: true,
 })`
   font-size: 28px;
   text-align: center;
-  color: ${colors.heading};
   margin-top: 38px;
   line-height: 34px;
 `
@@ -35,7 +34,6 @@ export const Subtitle = styled(Text)`
   text-align: center;
   font-size: 18px;
   padding: 0 20px;
-  color: ${colors.heading};
 `
 
 export const NextButton = styled(TouchableOpacity).attrs({

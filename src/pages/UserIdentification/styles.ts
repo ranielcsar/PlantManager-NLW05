@@ -33,12 +33,11 @@ export const Emoji = styled(Text)`
 `
 
 export const Title = styled(Text).attrs({
-  heading: true,
+  semibold: true,
 })`
   font-size: 24px;
   line-height: 32px;
   text-align: center;
-  color: ${colors.heading};
 `
 
 export const Form = styled(View)`
@@ -52,7 +51,6 @@ export const NameInput = styled(TextInput)<{ isFocused: boolean; isFilled: boole
   border-bottom-width: 1px;
   border-color: ${({ isFocused, isFilled }) =>
     isFocused || isFilled ? colors.green : colors.gray};
-  color: ${colors.heading};
   width: 100%;
   padding: 10px;
   margin-top: 50px;

@@ -17,7 +17,7 @@ export const Container = styled(TouchableOpacity).attrs({
 `
 
 export const Label = styled(Text).attrs({
-  heading: true,
+  semibold: true,
 })`
   text-align: center;
   font-size: 16px;

@@ -3,9 +3,9 @@ import { TouchableOpacityProps } from 'react-native'
 
 import { Container, Label } from './styles'
 
-interface Props extends TouchableOpacityProps {
+type Props = {
   title: string
-}
+} & TouchableOpacityProps
 
 const Button: React.FC<Props> = ({ title, ...rest }) => (
   <Container {...rest}>

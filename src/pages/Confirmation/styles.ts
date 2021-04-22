@@ -24,19 +24,17 @@ export const Emoji = styled(Text)`
 `
 
 export const Title = styled(Text).attrs({
-  heading: true,
+  semibold: true,
 })`
   font-size: 22px;
   text-align: center;
   margin-bottom: 20px;
-  color: ${colors.heading};
 `
 
 export const Subtitle = styled(Text)`
   font-size: 17px;
   text-align: center;
   padding: 10px 0;
-  color: ${colors.heading};
 `
 
 export const Footer = styled(View)`

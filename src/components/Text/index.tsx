@@ -4,11 +4,11 @@ import { TextProps } from 'react-native'
 import { Container } from './styles'
 
 export interface Props extends TextProps {
-  heading?: boolean
+  semibold?: boolean
 }
 
-const Text: React.FC<Props> = ({ heading, children, ...rest }) => (
-  <Container {...{ heading }} {...rest}>
+const Text: React.FC<Props> = ({ semibold, children, ...rest }) => (
+  <Container {...{ semibold }} {...rest}>
     {children}
   </Container>
 )
