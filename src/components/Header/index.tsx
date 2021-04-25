@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { ImageSourcePropType } from 'react-native'
 
 import { Container, Greetings, GreetingsContainer, Username, UserPhoto } from './styles'
+import userImage from '../../assets/userImage.png'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
-interface Props {
-  username: string
-  userPhoto: ImageSourcePropType
-}
+const Header: React.FC = () => {
+  const [username, setUsername] = useState<string>()
 
-const Header: React.FC<Props> = ({ username, userPhoto }) => {
+  useEffect(() => {
+    async function getUsername() {
+      const username = await AsyncStorage.getItem('@plantmanager:user')
+
+      setUsername(username || '')
+    }
+
+    getUsername()
+  }, [username])
+
   return (
     <Container>
       <GreetingsContainer>
@@ -16,7 +25,7 @@ const Header: React.FC<Props> = ({ username, userPhoto }) => {
         <Username>{username}</Username>
       </GreetingsContainer>
 
-      <UserPhoto source={userPhoto} />
+      <UserPhoto source={userImage} />
     </Container>
   )
 }

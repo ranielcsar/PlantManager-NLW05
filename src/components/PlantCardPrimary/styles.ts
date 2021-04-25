@@ -16,9 +16,9 @@ export const Container = styled(RectButton)`
   margin: 10px;
 `
 
-export const PlantName = styled(Text)`
+export const PlantName = styled(Text).attrs({ semibold: true })`
   color: ${colors.green_dark};
-  margin: 0 16px;
+  margin: 16px 0;
 `
 
 export const PlantPhoto = styled(SvgFromUri).attrs({

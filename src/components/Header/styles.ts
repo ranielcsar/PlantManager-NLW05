@@ -10,6 +10,7 @@ export const Container = styled(View)`
   justify-content: space-between;
   align-items: center;
   margin-top: ${getStatusBarHeight() + 10}px;
+  margin-bottom: 20px;
 `
 
 export const GreetingsContainer = styled(View)``

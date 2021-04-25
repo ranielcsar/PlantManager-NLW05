@@ -2,10 +2,9 @@ import styled from 'styled-components'
 import { TouchableOpacity } from 'react-native'
 import Text from '../Text'
 import colors from '../../../styles/colors'
+import { Props } from './index'
 
-export const Container = styled(TouchableOpacity).attrs({
-  activeOpacity: 0.8,
-})`
+export const Container = styled(TouchableOpacity)`
   background-color: ${colors.green};
   justify-content: center;
   align-items: center;

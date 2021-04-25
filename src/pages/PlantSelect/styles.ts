@@ -6,10 +6,11 @@ import colors from '../../../styles/colors'
 export const Container = styled(SafeAreaView)`
   flex: 1;
   padding: 0 30px;
+  background-color: ${colors.background};
 `
 
 export const Subheader = styled(View)`
-  margin-top: 30px;
+  margin-top: 10px;
 `
 
 export const Title = styled(Text).attrs({ semibold: true })`
