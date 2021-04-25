@@ -7,7 +7,7 @@ import { SvgFromUri } from 'react-native-svg'
 
 export const Container = styled(RectButton)`
   width: 100%;
-  padding: 25px 10px;
+  padding: 20px 10px;
   border-radius: 20px;
   flex-direction: row;
   align-items: center;
@@ -40,4 +40,19 @@ export const Time = styled(Text).attrs({ semibold: true })`
   margin-top: 5px;
   font-size: 16px;
   color: ${colors.body_dark};
+`
+
+export const RemoveButtonContainer = styled(View)``
+
+export const RemoveButton = styled(RectButton)`
+  width: 100px;
+  height: 80px;
+  background-color: ${colors.red};
+  margin-top: 15px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15px;
+  right: 20px;
+  position: relative;
 `

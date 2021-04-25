@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import waterdrop from '../../assets/waterdrop.png'
-import { loadPlant, PlantProps } from '../../libs/storage'
+import { loadPlant, PlantProps, removePlant } from '../../libs/storage'
 import { formatDistance } from 'date-fns/esm'
 import { pt } from 'date-fns/locale'
+import { Alert } from 'react-native'
+
+import Loading from '../../components/Loading'
+import PlantCardSecondary from '../../components/PlantCardSecondary'
 
 import {
   Container,
@@ -14,13 +18,32 @@ import {
   PlantsTitle,
   Plants,
 } from './styles'
-import Loading from '../../components/Loading'
-import PlantCardSecondary from '../../components/PlantCardSecondary'
 
 const MyPlants: React.FC = () => {
   const [myPlants, setMyPlants] = useState<PlantProps[]>([])
   const [loading, setLoading] = useState(true)
   const [nextWatered, setNextWatered] = useState<string>()
+
+  const handleRemovePlant = (plant: PlantProps) => {
+    Alert.alert('Remover', `Deseja mesmo remover a planta ${plant.name}?`, [
+      {
+        text: 'Não remover 🙏',
+        style: 'cancel',
+      },
+      {
+        text: 'Remover 😢',
+        onPress: async () => {
+          try {
+            await removePlant(plant.id)
+
+            setMyPlants((oldState) => oldState.filter((item) => item.id !== plant.id))
+          } catch (err) {
+            Alert.alert('Não foi possível remover. 😢')
+          }
+        },
+      },
+    ])
+  }
 
   useEffect(() => {
     async function loadStorageData() {
@@ -58,7 +81,9 @@ const MyPlants: React.FC = () => {
         <Plants
           data={myPlants}
           keyExtractor={(item: any) => String(item.id)}
-          renderItem={({ item }: any) => <PlantCardSecondary data={item} />}
+          renderItem={({ item }: any) => (
+            <PlantCardSecondary handleRemove={() => handleRemovePlant(item)} data={item} />
+          )}
           showsVerticalScrollIndicator={false}
         />
       </PlantsContainer>

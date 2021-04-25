@@ -4,8 +4,7 @@ import colors from '../../styles/colors'
 import PlantSelect from '../pages/PlantSelect'
 import { MaterialIcons } from '@expo/vector-icons'
 import MyPlants from '../pages/MyPlants'
-
-// import { Container } from './styles';
+import { Platform } from 'react-native'
 
 const AppTab = createBottomTabNavigator()
 
@@ -17,8 +16,8 @@ const AuthRoutes: React.FC = () => {
         inactiveTintColor: colors.heading,
         labelPosition: 'beside-icon',
         style: {
-          paddingBottom: 3,
-          height: 60,
+          paddingVertical: Platform.OS === 'ios' ? 20 : 0,
+          height: Platform.OS === 'ios' ? 80 : 60,
         },
       }}>
       <AppTab.Screen

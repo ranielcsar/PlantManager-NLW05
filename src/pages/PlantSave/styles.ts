@@ -6,11 +6,14 @@ import colors from '../../../styles/colors'
 import { getBottomSpace } from 'react-native-iphone-x-helper'
 import DateTimePicker from '@react-native-community/datetimepicker'
 
-export const Container = styled(View)`
-  flex: 1;
-  justify-content: space-between;
-  background-color: ${colors.shape};
-`
+export const Container = styled(ScrollView).attrs({
+  showsVerticalScrollIndicator: false,
+  contentContainerStyle: {
+    flex: 1,
+    justifyContent: 'space-between',
+    backgroundColor: colors.shape,
+  },
+})``
 
 /* PLANT */
 export const PlantInfos = styled(View)`

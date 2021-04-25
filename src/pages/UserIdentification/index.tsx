@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../../components/Button'
 
 import { Platform, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native'
@@ -53,6 +53,18 @@ const UserIdentification: React.FC = () => {
       Alert.alert('Não foi possível salvar seu nome. 😢')
     }
   }
+
+  useEffect(() => {
+    async function getUser() {
+      const user = await AsyncStorage.getItem('@plantmanager:user')
+
+      if (user) {
+        navigation.navigate('PlantSelect')
+      }
+    }
+
+    getUser()
+  }, [])
 
   return (
     <Container>

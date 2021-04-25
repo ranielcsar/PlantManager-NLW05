@@ -40,9 +40,7 @@ const PlantSelect: React.FC = () => {
 
     if (environment === 'all') return setFilteredPlants(plants)
 
-    const newFilteredPlants = plants.filter((plant) =>
-      plant.environments.includes(environmentSelected),
-    )
+    const newFilteredPlants = plants.filter((plant) => plant.environments.includes(environment))
 
     setFilteredPlants(newFilteredPlants)
   }
